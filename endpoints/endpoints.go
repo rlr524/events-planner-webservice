@@ -1,7 +1,7 @@
-package emiya
+package endpoints
 
 import (
-	. "../models"
+	. "../model"
 	"encoding/json"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -16,7 +16,7 @@ func GetEvent(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application-json")
 	params := mux.Vars(r)
 	for _, item := range Events {
-		if item.ID == params["_id"] {
+		if item.ID == params[_id] {
 			_ = json.NewEncoder(w).Encode(item)
 			return
 		}
